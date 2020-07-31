@@ -4,17 +4,37 @@
   },
   "functions": {
     "predeploy": [
-      "npm --prefix \"$RESOURCE_DIR\" run lint"
+      "yarn build"
     ]
   },
   "hosting": {
-    "public": "public",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
     "rewrites": [
+      {
+        "source": "/highscore/add**",
+        "function": "addHighScore"
+      },
+      {
+        "source": "/highscore/remove**",
+        "function": "removeHighScore"
+      },
+      {
+        "source": "/highscore/reset**",
+        "function": "resetHighScore"
+      },
+      {
+        "source": "/highscore/xml**",
+        "function": "exportXml"
+      },
+      {
+        "source": "/highscore/json**",
+        "function": "exportJson"
+      },
       {
         "source": "**",
         "destination": "/index.html"
