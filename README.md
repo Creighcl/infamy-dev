@@ -1,5 +1,5 @@
 # [Infamy.dev](https://www.infamy.dev) Website
-Allows developers to create a leaderboard and send high scores to it via HTTP web requests. 
+Allows developers to create a scoreboard and send high scores to it via HTTP web requests. Developers can then link to [scoreboard on Infamy](https://infamy.dev/highscore/web?id=example) or download the scoreboard via [xml](https://infamy.dev/highscore/xml?id=example) or [json](https://infamy.dev/highscore/json?id=example)
 
 ## Stack
 - Data Storage: Firebase Realtime Database
