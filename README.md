@@ -1,4 +1,4 @@
-# Infamy.dev Website
+# [Infamy.dev](https://www.infamy.dev) Website
 Allows developers to create a leaderboard and send high scores to it via HTTP web requests. 
 
 ## Stack
@@ -10,4 +10,5 @@ Allows developers to create a leaderboard and send high scores to it via HTTP we
 ## Leaderboard Security
 In the current version: there isn't any. Pretty easy for a mildly web savvy individual to 'figure out' how to manipulate the board.
 
-[Project Roadmap](FUTURE.md)
+## Future Improvements
+Collecting thoughts on what may come next in [Project Roadmap](FUTURE.md)
