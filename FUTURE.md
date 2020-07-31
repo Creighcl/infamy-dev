@@ -15,4 +15,3 @@ Allow owners of boards to customize properties of the board:
 - Accrual boards would add score submissions to the player's current score
 - Recent rank board would track best score in last X hours
 - Team board would expect addtl 'team' key and would display standings by team aggregation
-- 
