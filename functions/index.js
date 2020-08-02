@@ -106,6 +106,10 @@ const exportJson = (req, res) => {
     thisBoardRef.once('value').then(function(snapshot) {
         return cors(req, res, () => {
             const currentBoard = snapshot.val();
+            if (!currentBoard) {
+                res.status(200).json({});
+                return;
+            }
             const scores = Object.keys(currentBoard).map(name => ({ name, score: currentBoard[name]}));
             scores.sort((a, b) => b.score - a.score);
             const rawScoreArray = scores.map(o => o.score);
@@ -128,6 +132,11 @@ const exportXml = (req, res) => {
     thisBoardRef.once('value').then(function(snapshot) {
         return cors(req, res, () => {
             const currentBoard = snapshot.val();
+            if (!currentBoard) {
+                const xmlBoard = jsonXml({ highscores: [] }, { xmlHeader: true });
+                res.header('Content-Type','text/xml').status(200).send(xmlBoard);
+                return;
+            }
             const scores = Object.keys(currentBoard).map(name => ({ name, score: currentBoard[name]}));
             scores.sort((a, b) => b.score - a.score);
             const rawScoreArray = scores.map(o => o.score);

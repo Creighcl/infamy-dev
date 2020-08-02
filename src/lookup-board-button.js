@@ -1,38 +1,53 @@
 import React, { useState } from 'react';
 import {
-    Link,
     useHistory
 } from 'react-router-dom';
+import { v1 as uuid } from 'uuid';
 
 const LookupBoardButton = () => {
     const [lookupValue, setLookupValue] = useState('');
     const history = useHistory();
 
-    const handleLookupValueChange = ({ target: { value } }) => setLookupValue(value);
+    const generateRandomKey = () => setLookupValue(uuid());
+    const clearInput = () => setLookupValue("");
+
+    const handleLookupValueChange = ({ target: { value } }) =>
+        setLookupValue(value.replace(/[^a-zA-Z0-9/-]+/, ""));
     const handleLookupButtonClick = () => {
-        history.push(`/highscore/${lookupValue}`)
+        if (lookupValue) {
+            history.push(`/highscore/${lookupValue}`)
+        }
     };
 
     return (
         <div className="sidebar-box">
             <input
+                className="front-input"
                 type="text"
                 onChange={ handleLookupValueChange }
-                placeholder="leaderboard key"
+                placeholder="your scoreboard key"
                 value={ lookupValue }
+                size="38"
             />
+            { lookupValue && (<span
+                className='x-undo-field'
+                onClick={ clearInput }
+            >
+                x
+            </span>)}
+            <br />
             <button
+                className="front-button"
+                onClick={ generateRandomKey }
+            >
+                RANDOM
+            </button>
+            <button
+                className="front-button"
                 onClick={ handleLookupButtonClick }
             >
-                Lookup Existing Scoreboard
+                LOOKUP OR CREATE KEY
             </button>
-            <p>
-            <Link
-                to={`/highscore/example`}
-            >
-                Check out an example scoreboard
-            </Link>
-            </p>
         </div>
     );
 };
