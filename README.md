@@ -4,6 +4,8 @@ Allows developers to create a scoreboard and send high scores to it via HTTP web
 
 No attribution required.
 
+## Examples
+Used this (successfully) in a game for Ludum Dare game jam: [Bjorn to Dance](https://infamy.dev/highscore/web?id=bjorn-to-dance)
 
 ## Stack
 - Data Storage: Firebase Realtime Database
