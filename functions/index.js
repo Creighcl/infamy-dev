@@ -107,7 +107,7 @@ const exportJson = (req, res) => {
         return cors(req, res, () => {
             const currentBoard = snapshot.val();
             if (!currentBoard) {
-                res.status(200).json({});
+                res.status(200).json([]);
                 return;
             }
             const scores = Object.keys(currentBoard).map(name => ({ name, score: currentBoard[name]}));
